@@ -15,5 +15,17 @@
   "bugs": {
     "url": "https://github.com/billpatrianakos/piremote/issues"
   },
-  "homepage": "https://github.com/billpatrianakos/piremote#readme"
+  "homepage": "https://github.com/billpatrianakos/piremote#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bookshelf": "^0.15.1",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "knex": "^0.19.1",
+    "lodash": "^4.17.15",
+    "pg": "^7.12.1"
+  },
+  "devDependencies": {
+    "sqlite3": "^4.1.0"
+  }
 }
