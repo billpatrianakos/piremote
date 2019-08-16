@@ -1,0 +1,102 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "thor",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "Cancel",
+                        "Nevermind",
+                        "Never mind"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "changeChannel",
+                    "slots": [
+                        {
+                            "name": "channelNumber",
+                            "type": ""
+                        },
+                        {
+                            "name": "channelName",
+                            "type": ""
+                        }
+                    ],
+                    "samples": [
+                        "go to channel {channelNumber}",
+                        "tune to channel {channelNumber}",
+                        "switch to {channelName}",
+                        "turn to {channelName}"
+                    ]
+                },
+                {
+                    "name": "pressButton",
+                    "slots": [
+                        {
+                            "name": "buttonName",
+                            "type": ""
+                        }
+                    ],
+                    "samples": [
+                        "press {buttonName}"
+                    ]
+                },
+                {
+                    "name": "adjustVolume",
+                    "slots": [
+                        {
+                            "name": "direction",
+                            "type": ""
+                        },
+                        {
+                            "name": "value",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "turn the volume {direction} by {value}",
+                        "turn the volume {direction}"
+                    ]
+                },
+                {
+                    "name": "command",
+                    "slots": [
+                        {
+                            "name": "action",
+                            "type": ""
+                        }
+                    ],
+                    "samples": [
+                        "show me the {action}",
+                        "{action} the t. v.",
+                        "{action}",
+                        "{action} this show"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "",
+                    "values": []
+                }
+            ]
+        }
+    }
+}
