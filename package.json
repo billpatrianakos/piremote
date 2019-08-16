@@ -1,0 +1,19 @@
+{
+  "name": "piremote",
+  "version": "0.0.1",
+  "description": "A voice and web interface to control a Raspberry Pi universal remote",
+  "main": "api/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billpatrianakos/piremote.git"
+  },
+  "author": "Bill Patrianakos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/billpatrianakos/piremote/issues"
+  },
+  "homepage": "https://github.com/billpatrianakos/piremote#readme"
+}
