@@ -14,11 +14,7 @@ __A static IP or domain__ - This project assumes Alexa will call the API on your
 
 __An Alexa enabled device__ - Any Echo will do but you can also just use the app if you don't have one.
 
-__Amazon Developer Account__ - *This is not the same as an AWS account!* You need to set up a skill at [developer.amazon.com/alexa](https://developer.amazon.com/alexa/console/ask/create-new-skill). More on that in the setup instructions.
-
-__Other requirements:__
-
-- Node.js
+__An IFTTT account__ - I use IFTTT to trigger events instead of doing things the longer harder way through creating custom Alexa skills. You can create a skill if you want but IFTTT gets the job done.
 
 ## Setup
 
@@ -32,6 +28,7 @@ TODO: Explain how to...
 
 - clone
 - install deps
+	- knex
 - configuration
 - deployment
 
