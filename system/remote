@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+send_style  = ARGV[0]
+key_name    = ARGV[1]
+time        = ARGV[2] || 1
+
+if ARGV.length < 2
+  system("echo 'ERROR: MISSING ARGUMENTS")
+elsif send_style == 'press'
+  system("irsend send_once #{key_name} --count #{time}")
+else
+  system("irsend sent_start #{key_name}")
+  sleep time.to_i
+  system("irsend send_stop #{key_name}")
+end
