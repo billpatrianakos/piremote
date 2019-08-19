@@ -1,3 +1,10 @@
+// Remote commands config
+// ======================
+// This file should work with any generic
+// LIRC configuration but feel free to
+// modify it to your needs and liking. 
+// The multi-button commands will need to be
+// changed based on your own preferences.
 let defaultHoldTime = 5,
     longHoldTime    = 15,
     shortHoldTime   = 3;
@@ -56,15 +63,15 @@ module.exports = {
   hbo: [
     {
       keyName: 'KEY_5',
-      holdTime: defaultHoldTime
+      holdTime: shortHoldTime
     },
     {
       keyName: 'KEY_5',
-      holdTime: defaultHoldTime
+      holdTime: shortHoldTime
     },
     {
       keyName: 'KEY_0',
-      holdTime: defaultHoldTime
+      holdTime: shortHoldTime
     }
   ]
 }

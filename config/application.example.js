@@ -1,4 +1,7 @@
 // Application configuration
+// =========================
+// IMPORTANT: Rename this file to `application.js`
+// and add your production values before deploying.
 
 module.exports = {
   development: {
