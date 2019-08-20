@@ -1,5 +1,7 @@
 const { exec } = require('child_process'),
-      commands = require('../../config/commands');
+      commands = require('../../config/commands'),
+      express  = require('express')
+      RemoteController = express().router();
 
 RemoteController.route('/?')
   // GET /remote
