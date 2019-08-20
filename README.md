@@ -28,7 +28,7 @@ TODO: Explain how to...
 
 - clone
 - install deps
-	- knex
+	- knex, gulp-cli, pm2
 - configuration
 - deployment
 
