@@ -1,6 +1,6 @@
 {
   "name": "piremote",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A voice and web interface to control a Raspberry Pi universal remote",
   "main": "api/index.js",
   "scripts": {
