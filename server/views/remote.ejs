@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <title>Log in | PiRemote</title>
+  <title>Remote | PiRemote</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -14,13 +14,13 @@
   <main class="container">
     <div class="row">
       <div class="col-12">
-        <form method="post" action="/">
-          <input type="text" name="username" />
-          <br />
-          <input type="password" name="password" />
-          <br />
-          <input type="submit" name="Log in" />
-        </form>
+        <ul>
+          <% for(var key in commands) { %>
+            <li>
+              <%= key %>
+            </li>
+          <% } %>
+        </ul>
       </div>
     </div>
   </main>

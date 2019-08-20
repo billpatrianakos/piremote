@@ -44,8 +44,6 @@ if (!isProd()) app.use(express.static(path.join(__dirname, '/../public')));
 // Load up our routes
 // ------------------
 require('./routes')(app);
-app.use('/', require('./routes/main'));
-
 
 // 404 handler
 // -----------
@@ -57,7 +55,8 @@ app.use((req, res, next) => {
 // 500 handler
 // -----------
 app.use((err, req, res, next) => {
-  res.status(500).render('500', { error: err });
+  // res.status(500).render('500', { error: err });
+  res.status(500).send("Error: " + err);
 });
 
 

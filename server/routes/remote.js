@@ -1,14 +1,17 @@
-const { exec } = require('child_process'),
-      commands = require('../../config/commands'),
-      express  = require('express')
-      RemoteController = express().router();
+const { exec }         = require('child_process'),
+      commands         = require('../../config/commands'),
+      _                = require('lodash'),
+      config           = _.merge(require('../../config/application').defaults, require('../../config/application')[process.env.NODE_ENV || 'development']),
+      express          = require('express')
+      RemoteController = express.Router(),
+      authorize        = require('../lib/authorize');
 
 RemoteController.route('/?')
   // GET /remote
   // -----------
   // Show the remote web interface
-  .get((req, res, next) => {
-    //
+  .get(authorize, (req, res, next) => {
+    res.render('remote', { api_key: config.api_key, commands: commands })
   });
 
 RemoteController.route('/command/?')

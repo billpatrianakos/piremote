@@ -27,4 +27,4 @@ gulp.task('watch', () => {
   gulp.watch('./server/public/less/**/*.less', gulp.series('less'));
 });
 
-gulp.task('default', gulp.parallel('watch', 'server'));
+gulp.task('default', gulp.parallel('watch', 'serve'));
