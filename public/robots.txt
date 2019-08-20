@@ -1,0 +1,18 @@
+# robots.txt file
+# www.robotstxt.org/
+# In our file we discourage scanning of
+# the entire site since this is a private
+# installation and we do not want anyone
+# stumbling on our remote control website
+# from a Google search. Even so, we still
+# have to have security measures in place
+# just in case a rude robot crawls the site
+# or nefarious actors find us somehow. After
+# all, we don't want our TVs and appliances
+# suddenly changing channels or activating out
+# of nowhere because someone came across an
+# unprotected version of our site.
+
+# Disallow crawling of all content
+User-agent: *
+Disallow: /
