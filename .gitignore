@@ -1,3 +1,4 @@
 node_modules/
 config/application.js
 *.sqlite3
+client/node_modules/
