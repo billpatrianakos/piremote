@@ -8,7 +8,7 @@ gulp.task('serve', () => {
   let server = gls.new('./server/index.js', {env: 'development'});
   server.start();
 
-  gulp.watch(['.server/{routes,models}/**/*.js'], (file) => {
+  gulp.watch(['.server/{routes,models,lib}/**/*.js'], (file) => {
     server.notify.apply(server, [file]);
   });
 

@@ -14,13 +14,21 @@
   <main class="container">
     <div class="row">
       <div class="col-12">
-        <ul>
-          <% for(var key in commands) { %>
-            <li>
-              <%= key %>
-            </li>
+        <table>
+          <% let i = 1; %>
+          <% for(var command in commands) { %>
+            <% if(i === 1 || i % 4 === 0) { %>
+              <tr>
+            <% } %>
+              <td>
+                <%= command %><%= i %>
+              </td>
+            <% if(i % 4 === 0) { %>
+              </tr>
+            <% } %>
+            <% i += 1; %>
           <% } %>
-        </ul>
+        </table>
       </div>
     </div>
   </main>

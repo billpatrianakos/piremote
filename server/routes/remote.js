@@ -4,7 +4,8 @@ const { exec }         = require('child_process'),
       config           = _.merge(require('../../config/application').defaults, require('../../config/application')[process.env.NODE_ENV || 'development']),
       express          = require('express')
       RemoteController = express.Router(),
-      authorize        = require('../lib/authorize');
+      authorize        = require('../lib/authorize'),
+      keyCheck         = require('../lib/keyCheck');
 
 RemoteController.route('/?')
   // GET /remote
@@ -18,7 +19,7 @@ RemoteController.route('/command/?')
   // POST /command
   // -------------
   // Send a JSON request to command API
-  .post((req, res, next) => {
+  .post(keyCheck, (req, res, next) => {
     let command  = req.body.command;
     let response = '...';
 
