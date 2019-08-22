@@ -13,15 +13,16 @@
 
   <main class="container">
     <div class="row">
-      <div class="col-12">
-        <table>
+      <div class="col-3">&nbsp;</div>
+      <div class="col-6">
+        <table class="remote-interface">
           <% let i = 1; %>
           <% for(var command in commands) { %>
-            <% if(i === 1 || i % 4 === 0) { %>
+            <% if((i - 1) % 4 === 0) { %>
               <tr>
             <% } %>
               <td>
-                <%= command %><%= i %>
+                <%= command %> <%= i %>&nbsp;
               </td>
             <% if(i % 4 === 0) { %>
               </tr>
@@ -30,6 +31,7 @@
           <% } %>
         </table>
       </div>
+      <div class="col-3">&nbsp;</div>
     </div>
   </main>
 
