@@ -9,7 +9,7 @@ module.exports = {
     port: process.env.PORT || 9000,
     session: {
       cookie: { maxAge: 86400000 },
-      name: 'pisense.sid',
+      name: 'piremote.sid',
       resave: false,
       rolling: true,
       saveUninitialized: false,
@@ -17,6 +17,9 @@ module.exports = {
       unset: 'destroy'
     },
     api_key: '1d4859f8-8e90-4cfd-b4bc-d722380c489e',
+    alternateKeynames: { // Keys in this object matching the names of buttons in commands.js will display as the value of the key here. See example:
+      hbo: 'HBO' // If you have a key named 'hbo' in commands.js it will be displayed as "HBO" on the remote interface instead of its default humanized form of 'Hbo'
+    }
   },
 
   development: {
