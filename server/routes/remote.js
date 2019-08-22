@@ -1,18 +1,20 @@
 const { exec }         = require('child_process'),
       commands         = require('../../config/commands'),
       _                = require('lodash'),
-      config           = _.merge(require('../../config/application').defaults, require('../../config/application')[process.env.NODE_ENV || 'development']),
+      // config           = _.merge(require('../../config/application').defaults, require('../../config/application')[process.env.NODE_ENV || 'development']),
       express          = require('express')
       RemoteController = express.Router(),
       authorize        = require('../lib/authorize'),
-      keyCheck         = require('../lib/keyCheck');
+      keyCheck         = require('../lib/keyCheck'),
+      getCurrentUser   = require('../lib/getCurrentUser');
 
 RemoteController.route('/?')
   // GET /remote
   // -----------
   // Show the remote web interface
-  .get(authorize, (req, res, next) => {
-    res.render('remote', { api_key: config.api_key, commands: commands })
+  .get(authorize, getCurrentUser, (req, res, next) => {
+    let apiKey = req.user.apiKey;
+    res.render('remote', { api_key: apiKey, commands: commands, helpers: require('../lib/helpers') })
   });
 
 RemoteController.route('/command/?')
@@ -25,7 +27,7 @@ RemoteController.route('/command/?')
 
     if (commands[command]) {
       // Handle single key and multi-key commands
-      if (!command.length) {
+      if (!commands[command].length) {
         // handle single key commands
         exec(`../../system/remote ${command.keyName} ${command.holdTime}`, (error, stdout, stderr) => {
           if (error) {
