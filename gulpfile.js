@@ -8,7 +8,7 @@ gulp.task('serve', () => {
   let server = gls.new('./server/index.js', {env: 'development'});
   server.start();
 
-  gulp.watch(['.server/{routes,models,lib}/**/*.js'], (file) => {
+  gulp.watch(['./config/{commands,application}.js', '.server/{routes,models,lib}/**/*.js'], (file) => {
     server.notify.apply(server, [file]);
   });
 
@@ -18,9 +18,9 @@ gulp.task('serve', () => {
 });
 
 gulp.task('less', () => {
-  return gulp.src('./server/public/less/style.less')
+  return gulp.src('./public/less/style.less')
     .pipe(less())
-    .pipe(gulp.dest('./server/public/css'));
+    .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('watch', () => {
