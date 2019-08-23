@@ -1,15 +1,21 @@
 #!/usr/bin/env ruby
 
-send_style  = ARGV[0]
-key_name    = ARGV[1]
-time        = ARGV[2] || 1
+mode = ARGV[0]
+key = ARGV[1]
 
-if ARGV.length < 2
-  system("echo 'ERROR: MISSING ARGUMENTS")
-elsif send_style == 'press'
-  system("irsend send_once #{key_name} --count #{time}")
+if mode.nil? || ['help', 'h'].include?(mode)
+  puts "USAGE:"
+  puts "remote press <key> <times>"
+  puts "remote hold <key> <seconds>"
+  exit
+end
+
+if mode == 'press'
+  count = ARGV[2].nil? ? 10 : ARGV[2]
+  system("irsend --count #{count} SEND_ONCE xr11 #{key}")
 else
-  system("irsend sent_start #{key_name}")
-  sleep time.to_i
-  system("irsend send_stop #{key_name}")
+  seconds = ARGV[2].nil? ? 2 : ARGV[2]
+  system("irsend SEND_START xr11 #{key}")
+  sleep seconds.to_f
+  system("irsend SEND_STOP xr11 #{key}")
 end
