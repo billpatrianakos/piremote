@@ -24,33 +24,36 @@ RemoteController.route('/command/?')
   .post(keyCheck, (req, res, next) => {
     let command  = req.body.command;
     let response = '...';
+    let errors   = [];
 
     if (commands[command]) {
       // Handle single key and multi-key commands
       if (!commands[command].length) {
         // handle single key commands
-        exec(`../../system/remote press ${command.keyName} ${command.holdTime}`, (error, stdout, stderr) => {
-          if (error) {
-            return next(error);
-          }
+        exec(`${__dirname}/../../system/remote press ${command.keyName} ${command.holdTime}`, (error, stdout, stderr) => {
+          if (error) errors.push(error);
+
           response += stdout;
           response += stderr;
-        });
 
-        res.status(200).json({ status: 'ok', response: response });
+          res.status(200).json({ status: 'ok', response: response, errors: errors });
+        });
       } else {
         // handle multi-key press commands
-        response = '...';
-        command.forEach((cmd) => {
-          exec(`../../system/remote hold ${command.keyName} ${command.holdTime}`, (error, stdout, stderr) => {
-            if (error) {
-              return next(error);
-            }
+        let timesRun = 0
+        commands[command].forEach((cmd) => {
+          exec(`${__dirname}/../../system/remote hold ${command.keyName} ${command.holdTime}`, (error, stdout, stderr) => {
+            if (error) errors.push(error);
+
             response += stdout;
             response += stderr;
+
+            timesRun += 1;
+            if (timesRun === commands[command].length) {
+              res.status(200).json({ status: 'ok', response: response, errors: errors });
+            }
           });
         });
-        res.status(200).json({ status: 'ok', response: response });
       }
     } else {
       next('Unrecognized remote command. Make sure to send a remote command that matches the name of a command object key.')
