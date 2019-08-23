@@ -11,7 +11,7 @@ if mode.nil? || ['help', 'h'].include?(mode)
 end
 
 if mode == 'press'
-  count = ARGV[2].nil? ? 10 : ARGV[2]
+  count = ARGV[2].nil? ? 10 : ARGV[2].to_i
   system("irsend --count #{count} SEND_ONCE xr11 #{key}")
 else
   seconds = ARGV[2].nil? ? 2 : ARGV[2]
