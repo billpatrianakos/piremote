@@ -16,9 +16,12 @@ $(document).ready(function() {
     })
     .done(function(result) {
       if (result.status === 'ok') {
-        alert('All good');
+        alert(result.response);
       } else {
         alert(result.response);
+        response.errors.forEach(function(error) {
+          console.log(error);
+        });
       }
     });
   });
