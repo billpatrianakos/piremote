@@ -29,7 +29,7 @@ RemoteController.route('/command/?')
       // Handle single key and multi-key commands
       if (!commands[command].length) {
         // handle single key commands
-        exec(`../../system/remote ${command.keyName} ${command.holdTime}`, (error, stdout, stderr) => {
+        exec(`../../system/remote press ${command.keyName} ${command.holdTime}`, (error, stdout, stderr) => {
           if (error) {
             return next(error);
           }
@@ -42,7 +42,7 @@ RemoteController.route('/command/?')
         // handle multi-key press commands
         response = '...';
         command.forEach((cmd) => {
-          exec(`../../system/remote ${command.keyName} ${command.holdTime}`, (error, stdout, stderr) => {
+          exec(`../../system/remote hold ${command.keyName} ${command.holdTime}`, (error, stdout, stderr) => {
             if (error) {
               return next(error);
             }
