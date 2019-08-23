@@ -8,11 +8,11 @@ gulp.task('serve', () => {
   let server = gls.new('./server/index.js', {env: 'development'});
   server.start();
 
-  gulp.watch(['./config/{commands,application}.js', '.server/{routes,models,lib}/**/*.js'], (file) => {
-    server.notify.apply(server, [file]);
-  });
+  // gulp.watch(['./config/{commands,application}.js', './server/{routes,models,lib}/*.js'], (file) => {
+  //   server.notify.apply(server, [file]);
+  // });
 
-  gulp.watch('./server/index.js', function() {
+  gulp.watch(['./config/{commands,application}.js', './server/{routes,models,lib}/*.js', './server/index.js'], function() {
     server.start.bind(server)();
   });
 });
