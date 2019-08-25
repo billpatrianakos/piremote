@@ -13,7 +13,10 @@ exports.seed = (knex) => {
         {
           id: 1,
           username: config.defaultUsername,
-          password: hash
+          password: hash,
+          created_at: Date.now(),
+          updated_at: Date.now(),
+          api_key_id: 1
         }
       ]);
     });

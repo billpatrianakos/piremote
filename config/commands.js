@@ -5,9 +5,9 @@
 // modify it to your needs and liking. 
 // The multi-button commands will need to be
 // changed based on your own preferences.
-let defaultHoldTime = 5,
-    longHoldTime    = 15,
-    shortHoldTime   = 3;
+let defaultHoldTime = 3,
+    longHoldTime    = 7,
+    shortHoldTime   = 1;
 
 module.exports = {
   // Basic single key commands

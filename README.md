@@ -26,10 +26,23 @@ TODO: Explain how to...
 
 ## Installation
 
-- clone
-- install deps
-	- knex, gulp-cli, pm2
-- configuration
+### Clone the repository locally
+
+Clone this repo. I use a separate, private branch for deployment so my config files do not end up publicly available on GitHub. You can either do this as well or add your private config files to your `.gitignore` file.
+
+### Install dependencies on the Pi
+
+1. Install Nodejs v12.8.1. I use `nvm` to manage Node versions and the deploy scripts are written with that assumption.
+2. With Node installed, install global dependencies: `npm install knex pm2`
+3. Install Nginx: `sudo apt-get update && sudo apt-get install nginx`
+4. Install Postgres. [Here's a good guide](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04)
+
+TODO: explain setting up git repo on pi for deployment
+
+### Configure the PiRemote application
+
+Now that you have the software required to run on the Pi installed, log out of the Pi and configure the application locally.
+
 - deployment
 
 ## Usage
