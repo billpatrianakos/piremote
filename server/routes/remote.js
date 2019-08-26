@@ -30,7 +30,7 @@ RemoteController.route('/command/?')
       // Handle single key and multi-key commands
       if (!commands[command].length) {
         // handle single key commands
-        exec(`${__dirname}/../../system/remote press ${command.keyName} ${command.holdTime}`, (error, stdout, stderr) => {
+        exec(`${__dirname}/../../system/remote press ${commands[command].keyName} ${commands[command].holdTime}`, (error, stdout, stderr) => {
           if (error) errors.push(error);
 
           response += stdout;
@@ -42,7 +42,7 @@ RemoteController.route('/command/?')
         // handle multi-key press commands
         let timesRun = 0
         commands[command].forEach((cmd) => {
-          exec(`${__dirname}/../../system/remote hold ${command.keyName} ${command.holdTime}`, (error, stdout, stderr) => {
+          exec(`${__dirname}/../../system/remote hold ${commands[command].keyName} ${commands[command].holdTime}`, (error, stdout, stderr) => {
             if (error) errors.push(error);
 
             response += stdout;
