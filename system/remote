@@ -2,20 +2,21 @@
 
 mode = ARGV[0]
 key = ARGV[1]
+remote_name = ARGV[2]
 
 if mode.nil? || ['help', 'h'].include?(mode)
   puts "USAGE:"
-  puts "remote press <key> <times>"
-  puts "remote hold <key> <seconds>"
+  puts "remote press <key> <remote_name> <times>"
+  puts "remote hold <key> <remote_name> <seconds>"
   exit
 end
 
 if mode == 'press'
-  count = ARGV[2].nil? ? 10 : ARGV[2].to_i
-  system("irsend --count #{count} SEND_ONCE xr11 #{key}")
+  count = ARGV[3].nil? ? 10 : ARGV[3].to_i
+  system("irsend --count #{count} SEND_ONCE #{remote_name} #{key}")
 else
-  seconds = ARGV[2].nil? ? 2 : ARGV[2]
-  system("irsend SEND_START xr11 #{key}")
+  seconds = ARGV[3].nil? ? 2 : ARGV[3]
+  system("irsend SEND_START #{remote_name} #{key}")
   sleep seconds.to_f
-  system("irsend SEND_STOP xr11 #{key}")
+  system("irsend SEND_STOP #{remote_name} #{key}")
 end
